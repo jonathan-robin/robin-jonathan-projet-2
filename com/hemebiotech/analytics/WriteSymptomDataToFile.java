@@ -35,6 +35,9 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
     }
 
+    // add new line at end of text 
+    writer.write("\n");
+
 		writer.close();
     }
     catch(Exception e){ 
