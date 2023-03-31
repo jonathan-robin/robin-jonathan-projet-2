@@ -16,9 +16,11 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @param 
 	 */
   @Override
-  public void writeSymptoms(Map<String, Integer> symptoms) throws Exception {
+  public void writeSymptoms(Map<String, Integer> symptoms) {
 
-		FileWriter writer = new FileWriter ("result.out");
+    try{ 
+
+		FileWriter writer = new FileWriter("result.out");
 
     // Keep index for result.out formatting
     int index = 0;
@@ -32,7 +34,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
       index++;
 
     }
-    
+
 		writer.close();
+    }
+    catch(Exception e){ 
+      System.err.println("Exception: " + e);
+    } finally{ 
+      System.out.println("The 'try catch' is finished.");
+    }
   }
 }
